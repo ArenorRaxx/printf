@@ -6,7 +6,7 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 12:44:27 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/25 16:52:35 by mcorso           ###   ########.fr       */
+/*   Updated: 2021/12/25 17:14:45 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@
 	void	ft_putchar(char c);
 	void	ft_putstr(char *str);
 	void	ft_format(char c, va_list args);
-	void	ft_putnbr_base(int num, char *base);
+	void	ft_putnbr_base(long num, char *base);
 #endif
