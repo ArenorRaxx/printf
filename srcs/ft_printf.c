@@ -6,7 +6,7 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 12:56:03 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/25 15:59:40 by mcorso           ###   ########.fr       */
+/*   Updated: 2021/12/25 17:05:31 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,23 @@ void	ft_format(char c, va_list args)
 	else if (c == 'p')
 		;//ft_putpointer(va_arg(args, void *), "0123456789ABCDEF")
 	else if (c == 'd')
-		;//ft_putnbr_base(va_arg(args, int), "0123456789")
+		ft_putnbr_base(va_arg(args, int), "0123456789");
 	else if (c == 'i')
-		;//ft_putnbr_base(va_arg(args, int), "0123456789")
+		ft_putnbr_base(va_arg(args, int), "0123456789");
 	else if (c == 'u')
-		;//ft_putnbr_base(va_arg(args, unsigned int), "0123456789")
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789");
 	else if (c == 'x')
-		;//ft_putnbr_base(va_arg(args, int), "0123456789abcdef")
-	else
-		;//ft_putnbr_base(va_arg(args, unsigned int), "0123456789")
+		ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
+	else if (c == 'X')
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
+	else if (c == '%')
+		ft_putchar('%');
 }
-int	ft_print_format(const char **format, va_list args)
+int	ft_print_format(const char c, va_list args)
 {
 	const char *format_set = "cspdiuxX%";
-	if (is_in_set(**format, format_set))
-		ft_format(**format, args);
+	if (is_in_set(c, format_set))
+		ft_format(c, args);
 	else
 		return (-1);
 	return (0);
@@ -57,19 +59,14 @@ int 	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			if (ft_print_format(&format, args) < 0)
+			format++;
+			if (ft_print_format(*format, args) < 0)
 				return (-1);
+			format++;
+			continue ;
 		}
-		else
-			ft_putchar(*format);
-		format++;
+		ft_putchar(*format++);
 	}
 	va_end(args);
-	return (0);
-}
-
-int main (void)
-{
-	ft_printf("%c", 'a');
 	return (0);
 }
