@@ -6,13 +6,13 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 12:56:03 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/25 17:25:39 by mcorso           ###   ########.fr       */
+/*   Updated: 2021/12/27 10:58:03 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
-int		is_in_set(char c, const char *charset)
+int	is_in_set(char c, const char *charset)
 {
 	while (c != *charset++)
 		if (!*charset)
@@ -22,7 +22,7 @@ int		is_in_set(char c, const char *charset)
 
 void	ft_format(char c, va_list args)
 {
-	void *addr;
+	void	*addr;
 
 	if (c == 'c')
 		ft_putchar((char) va_arg(args, int));
@@ -31,7 +31,7 @@ void	ft_format(char c, va_list args)
 	else if (c == 'p')
 	{
 		addr = va_arg(args, void *);
-		ft_putnbr_base((long)&addr, "0123456789abcdef");
+		ft_putnbr_base((long)addr, "0123456789abcdef");
 	}
 	else if (c == 'd')
 		ft_putnbr_base(va_arg(args, int), "0123456789");
@@ -49,7 +49,8 @@ void	ft_format(char c, va_list args)
 
 int	ft_print_format(const char c, va_list args)
 {
-	const char *format_set = "cspdiuxX%";
+	const char	*format_set = "cspdiuxX%";
+
 	if (is_in_set(c, format_set))
 		ft_format(c, args);
 	else
@@ -57,9 +58,10 @@ int	ft_print_format(const char c, va_list args)
 	return (0);
 }
 
-int 	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list args;
+	va_list	args;
+
 	va_start(args, format);
 	while (*format)
 	{
@@ -75,13 +77,4 @@ int 	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (0);
-}
-
-#include <stdio.h>
-int main(void)
-{
-	int i = 10;
-	int *p = &i;
-	ft_printf("%p -", &p); 
-	printf("\n%p -", &p);
 }

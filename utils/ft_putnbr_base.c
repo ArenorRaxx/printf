@@ -6,11 +6,11 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 16:00:43 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/25 17:15:27 by mcorso           ###   ########.fr       */
+/*   Updated: 2021/12/27 10:57:31 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
 void	ft_putnbr_base(long num, char *base)
 {
@@ -27,10 +27,10 @@ void	ft_putnbr_base(long num, char *base)
 	}
 	if (num / lenbase != 0)
 		ft_putnbr_base(num / lenbase, base);
-	ft_putchar(base[num % lenbase]);
 	if (sign)
 	{
 		ft_putchar('-');
 		sign = 0;
 	}
+	ft_putchar(base[num % lenbase]);
 }
