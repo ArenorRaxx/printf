@@ -6,7 +6,7 @@
 #    By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/25 12:06:45 by mcorso            #+#    #+#              #
-#    Updated: 2021/12/27 11:58:03 by mcorso           ###   ########.fr        #
+#    Updated: 2021/12/27 13:17:06 by mcorso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,6 @@ ${OBJ_DIR}/%.o:${SRC_DIR}/%.c
 ${NAME}: ${OBJS}
 		ar rc ${NAME} ${OBJS}
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJ_DIR}/*
 fclean: clean
 		${RM} ${NAME}
