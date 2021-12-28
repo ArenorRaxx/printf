@@ -6,7 +6,7 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 15:54:39 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/27 10:57:24 by mcorso           ###   ########.fr       */
+/*   Updated: 2021/12/28 12:32:43 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_putstr(char *str)
 {
+	if (!str)
+	{
+		ft_putstr("(null)");
+		return ;
+	}
 	while (*str)
 		ft_putchar(*str++);
 }

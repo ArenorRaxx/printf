@@ -6,7 +6,7 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 12:56:03 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/27 14:43:03 by mcorso           ###   ########.fr       */
+/*   Updated: 2021/12/28 12:44:32 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,14 @@ int	is_in_set(char c, const char *charset)
 
 void	ft_format(char c, va_list args)
 {
-	void	*addr;
-
 	if (c == 'c')
 		ft_putchar((char) va_arg(args, int));
 	else if (c == 's')
-		ft_putstr((char *) va_arg(args, char *));
-	else if (c == 'p')
 	{
-		addr = va_arg(args, void *);
-		ft_putnbr_base((long)addr, "0123456789abcdef");
+		ft_putstr((char *) va_arg(args, char *));
 	}
+	// else if (c == 'p')
+	// 	ft_putnbr_base((long)addr, "0123456789abcdef");
 	else if (c == 'd')
 		ft_putnbr_base(va_arg(args, int), "0123456789");
 	else if (c == 'i')
@@ -51,7 +48,7 @@ void	ft_format(char c, va_list args)
 	else if (c == 'u')
 		ft_putnbr_base(va_arg(args, unsigned int), "0123456789");
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
 		ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
 	else if (c == '%')
