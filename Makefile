@@ -6,7 +6,7 @@
 #    By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/25 12:06:45 by mcorso            #+#    #+#              #
-#    Updated: 2021/12/28 16:49:05 by mcorso           ###   ########.fr        #
+#    Updated: 2021/12/28 17:15:58 by mcorso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ HEAD = ./
 NAME = libftprintf.a
 CC = gcc -Wall -Werror -Wextra
 RM = rm -f
-${OBJ_DIR}/%.o:${SRC_DIR}/%.c
+${OBJ_DIR}/%.o: ${SRC_DIR}/%.c
 		${CC} -I ${HEAD} -c $< -o $@
-${NAME}:{OBJS}
+${NAME}: ${OBJS}
 		ar rc ${NAME} ${OBJS}
 clean:
 		${RM} ${OBJ_DIR}/*
@@ -39,3 +39,5 @@ fclean: clean
 all: ${NAME}
 
 re:	fclean all
+
+.PHONY: ${NAME} all re clean fclean
