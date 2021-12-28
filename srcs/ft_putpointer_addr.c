@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putpointer_addr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/25 16:00:43 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/28 13:34:13 by mcorso           ###   ########.fr       */
+/*   Created: 2021/12/28 12:51:53 by mcorso            #+#    #+#             */
+/*   Updated: 2021/12/28 13:33:46 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putnbr_base(long num, char *base, size_t lenbase)
+void	ft_putpointer_addr(unsigned long long ptr)
 {
-	static int		sign;	
+	static int		flag;
+	static char		*base = "0123456789abcdef";
+	static size_t	lenbase = 16;
 
-	if (num < 0 && sign == 0)
+	if (!ptr)
 	{
-		num *= -1;
-		sign = 1;
+		ft_putstr("(nil)");
+		return ;
 	}
-	if (num / lenbase != 0)
-		ft_putnbr_base(num / lenbase, base, lenbase);
-	if (sign)
-	{
-		ft_putchar('-');
-		sign = 0;
-	}
-	ft_putchar(base[num % lenbase]);
+	if (!flag++)
+		ft_putstr("0x");
+	if (ptr / lenbase != 0)
+		ft_putpointer_addr(ptr / lenbase);
+	ft_putchar(base[ptr % lenbase]);
+	flag = 0;
 }

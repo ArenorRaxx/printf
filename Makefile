@@ -6,7 +6,7 @@
 #    By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/25 12:06:45 by mcorso            #+#    #+#              #
-#    Updated: 2021/12/27 13:17:06 by mcorso           ###   ########.fr        #
+#    Updated: 2021/12/28 12:57:30 by mcorso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ OBJ_DIR = ./obj
 SRC_FILES = ft_printf.c\
 		ft_putchar.c\
 		ft_putstr.c\
-		ft_putnbr_base.c
+		ft_putnbr_base.c\
+		ft_putpointer_addr.c
 
 SRCS = ${addprefix ${SRC_DIR}/, ${SRC_FILES}}
 

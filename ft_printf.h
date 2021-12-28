@@ -6,7 +6,7 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 12:44:27 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/27 14:02:53 by mcorso           ###   ########.fr       */
+/*   Updated: 2021/12/28 13:34:28 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_print_format(const char c, va_list args);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_format(char c, va_list args);
-void	ft_putnbr_base(long num, char *base);
+void	ft_putpointer_addr(unsigned long long ptr);
+void	ft_putnbr_base(long num, char *base, size_t lenbase);
 
 #endif

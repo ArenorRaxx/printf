@@ -6,13 +6,14 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 14:14:29 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/28 12:41:24 by mcorso           ###   ########.fr       */
+/*   Updated: 2021/12/28 13:45:38 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
-#include <limits.h>
+#include <stdlib.h>
+#include <time.h>
 #include "../ft_printf.h"
 
 #define PRINT(n, ...) {printf("\n--- TEST %d ---\n", n);\
@@ -35,7 +36,16 @@ void	final_grade(int total)
 
 int	main(void)
 {
-	PRINT(1, " NULL %s NULL ", NULL);
-	final_grade(1);
+	int i;
+	int n;
+
+	n = 0;
+	srand(time(0));
+	for(i = 0; i != 100; i++)
+	{
+		n = rand();
+		PRINT(i, "%x", n);
+	}
+	final_grade(i);
 	return (0);
 }
