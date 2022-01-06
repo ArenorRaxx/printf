@@ -6,7 +6,7 @@
 /*   By: mcorso <mcorso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:51:53 by mcorso            #+#    #+#             */
-/*   Updated: 2021/12/28 16:57:44 by mcorso           ###   ########.fr       */
+/*   Updated: 2022/01/06 17:44:12 by mcorso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putpointer_addr(unsigned long long ptr)
 
 	if (!ptr)
 	{
-		ft_putstr("(nil)");
+		ft_putstr("0x0");
 		return ;
 	}
 	if (!flag++)
